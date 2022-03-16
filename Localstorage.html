@@ -34,10 +34,10 @@
                 const key = localStorage.key(i);
                 const value = localStorage.getItem(key);
                 lsOutput.innerHTML += `<br>${key}: ${value}<br>
-                <button onclick="slett()">Slett</button>`;
+                <button onclick="slett(index)">Slett</button>`;
             };
 
-            function slett(){
+            function slett(index){
                 localStorage.removeItem("Hallo");
                 localStorage.removeItem("Yo");
                 localStorage.removeItem("Spider Man");
