@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <input id="inpKey" type="text" placeholder="Movie Title">
+        <input id="inpValue" type="text" placeholder="Realse Date">
+        <button type="button" id="btnInsert">Legg til</button>
+        <br>
+        <div id="lsOutput"></div>
+
+        <script>
+
+            const inpKey = document.getElementById("inpKey");
+            const inpValue = document.getElementById("inpValue");
+            const btnInsert = document.getElementById("btnInsert");
+            const lsOutput = document.getElementById("lsOutput");
+
+            btnInsert.onclick = function(){
+                const key = inpKey.value;
+                const value = inpValue.value;
+                if(key && value){
+                    localStorage.setItem(key, value);
+                    location.reload();
+                }
+
+            };
+
+            for(let i = 0; i < localStorage.length; i++){
+                const key = localStorage.key(i);
+                const value = localStorage.getItem(key);
+                lsOutput.innerHTML += `<br>${key}: ${value}<br>
+                <button onclick="slett()">Slett</button>`;
+            };
+
+            function slett(){
+                localStorage.removeItem("Hallo");
+                location.reload();
+
+            }
+            
+            
+            </script>
+    </body>
+</html>
